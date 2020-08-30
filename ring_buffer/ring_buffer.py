@@ -18,4 +18,10 @@ class RingBuffer:
             self.current.value = item
 
     def get(self):
-        pass
+        list_buffer_contents = []
+        node = self.storage.head
+        while node is not None:
+            list_buffer_contents.append(node.value)
+            node = node.next
+
+        return list_buffer_contents
