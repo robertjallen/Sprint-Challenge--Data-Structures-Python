@@ -19,19 +19,16 @@ duplicates = []  # Return the list of duplicates in this data structure
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
+bst = BinarySearchTree('')
+for n_1 in names_1[1:]:
+    bst.insert(n_1)
 
-binary = BinarySearchTree("Speed Test")
+duplicates = [n_2 for n_2 in names_2 if bst.contains(n_2)]
 
-for name in names_1:
-    binary.insert(name)
-
-for name in names_2:
-    if binary.contains(name):
-        duplicates.append(name)
 
 end_time = time.time()
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
+print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+print(f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
